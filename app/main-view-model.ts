@@ -1,38 +1,13 @@
-import { Observable } from '@nativescript/core'
+import { Observable } from "@nativescript/core";
 
-export class HelloWorldModel extends Observable {
-  private _counter: number
-  private _message: string
+export function createViewModel() {
+    const viewModel = new Observable();
+    viewModel.set("userInput", ""); // Ensures `userInput` starts as an empty string
+    console.log("✅ ViewModel Initialized - userInput set to empty string");
+    return viewModel;
+}
 
-  constructor() {
-    super()
-
-    // Initialize default values.
-    this._counter = 42
-    this.updateMessage()
-  }
-
-  get message(): string {
-    return this._message
-  }
-
-  set message(value: string) {
-    if (this._message !== value) {
-      this._message = value
-      this.notifyPropertyChange('message', value)
-    }
-  }
-
-  onTap() {
-    this._counter--
-    this.updateMessage()
-  }
-
-  private updateMessage() {
-    if (this._counter <= 0) {
-      this.message = 'Hoorraaay! You unlocked the NativeScript clicker achievement!'
-    } else {
-      this.message = `${this._counter} taps left`
-    }
-  }
+// ✅ Fix: Add the missing `onSubmit` function
+export function onSubmit(userInput: string) {
+    console.log(`🟢 Submitted userInput: "${userInput}"`);
 }

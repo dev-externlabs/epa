@@ -1,0 +1,21 @@
+<Page loaded="onNavigatingTo" class="page">
+    <ActionBar title="Task Page" class="action-bar" />
+    <GridLayout rows="auto,*">
+        <StackLayout row="0" verticalAlignment="top" padding="10">
+            <Label text="{{ userInput }}" class="input" />
+            <Label text="Your Tasks:" class="label" />
+        </StackLayout>
+
+        <!-- Fixed height added to avoid performance warning -->
+        <ListView row="1" items="{{ taskList }}" itemTap="onTaskTap" class="list-view" height="500">
+            <ListView.itemTemplate>
+                <GridLayout columns="auto, *, auto, auto" padding="10" class="task-item">
+                    <Label text="{{ UN_Id }}" class="task-index" col="0" marginRight="10" />
+                    <Label text="{{ Work }}" class="task-work" col="1" fontWeight="bold" />
+                    <Label text="{{ Priority }}" class="task-priority" col="2" marginLeft="10" />
+                    <Label text="{{ Target_Date }}" class="task-date" col="3" marginLeft="10" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

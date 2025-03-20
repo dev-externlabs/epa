@@ -1,9 +1,16 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <ActionBar title="My App" icon="" />
+<Page loaded="onNavigatingTo" class="page">
+    <ActionBar title="Login" class="action-bar" />
+    <StackLayout class="form" verticalAlignment="center">
+        <Label text="User Name / Mobile Number" class="label" />
+        <TextField id="userInputField"
+           hint="Enter your username or mobile number"
+           text="{{ userInput }}"
+           updateTextTrigger="textChanged"
+           autocorrect="false"
+           autocapitalizationType="none"
+           returnKeyType="done"
+           class="input"/>
 
-    <StackLayout class="p-20">
-        <Label text="Tap the button" class="h1 text-center" />
-        <Button text="TAP" tap="{{ onTap }}" class="-primary" />
-        <Label text="{{ message }}" class="h2 text-center" textWrap="true" />
+        <Button text="Submit" class="button" tap="onSubmitTap" />
     </StackLayout>
 </Page>
